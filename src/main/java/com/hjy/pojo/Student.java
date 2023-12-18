@@ -2,6 +2,10 @@ package com.hjy.pojo;
 
 public class Student {
 
+    public Student() {
+
+    }
+
     public int getId() {
         return id;
     }

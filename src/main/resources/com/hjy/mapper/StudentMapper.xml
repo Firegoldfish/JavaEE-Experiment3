@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hjy.dao.StudentDao">
+    <select id="findById" parameterType="Integer" resultType="Student">
+        select * from students where id=#{id}
+    </select>
+    <select id="findByName" parameterType="String" resultType="Student">
+        select * from students where name like '%${value}%'
+    </select>
+    <select id="selectAll" parameterType="Student" resultType="Student">
+        select * from students where 1=1
+        <if test="id!=null">
+            and id=#{id}
+        </if>
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="age!=null">
+            and age=#{age}
+        </if>
+        <if test="gender!=null and gender!=''">
+            and gender=#{gender}
+        </if>
+        <if test="address!=null and address!=''">
+            and address=#{address}
+        </if>
+    </select>
+    <select id="findStudentByNameAndAddress" parameterType="Student" resultType="Student">
+        select * from students where 1=1
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="address!=null and address!=''">
+            and address=#{address}
+        </if>
+    </select>
+    <insert id="insertStudent" parameterType="Student" keyProperty="id" useGeneratedKeys="true">
+        insert into students (name, age, gender, number, address, status) values (#{name},#{age},#{gender},#{number},#{address},#{status})
+    </insert>
+    <update id="updateStudent" parameterType="Student">
+        update students set
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="age!=null">
+                age=#{age},
+            </if>
+            <if test="gender!=null and gender!=''">
+                gender=#{gender},
+            </if>
+            <if test="number!=null and number!=''">
+                number=#{number},
+            </if>
+            <if test="address!=null and address!=''">
+                address=#{address},
+            </if>
+            <if test="status!=null">
+                status=#{status}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="delStudent" parameterType="Integer">
+        delete from students where id=#{id}
+    </delete>
+</mapper>
