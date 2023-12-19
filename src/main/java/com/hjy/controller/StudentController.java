@@ -15,34 +15,17 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentService studentService;
-    @RequestMapping("/List.action")
-    public String list(int id, String name, Integer age, String gender, String address, Model model, HttpServletRequest request){
-        Student student = new Student();
-        student.setId(id);
-        if(name==null)name="";
-        student.setName(name);
-        student.setAge(age);
-        if(gender==null)gender="";
-        student.setGender(gender);
-        if(address==null)address="";
-        student.setAddress(address);
-        System.out.println(student);
-        List<Student> students=new ArrayList<Student>();
-        students=(List<Student>) studentService.selectAll(student);
-        Integer rows=0;
-        for(Student student1:students) {
-            System.out.println(student1);
-            rows++;
-        }
-        if(rows==0) {model.addAttribute("msg", "此学生不存在。");return "student";}
+    @RequestMapping("/showTable")
+    public String showTable(int id, String name, Integer age, String gender, String address, Model model, HttpServletRequest request){
+        List<Student> students =studentService.selectAll();
         model.addAttribute("students", students);
-        return "findstudent";
+        return "student";
     }
-    @RequestMapping("/tocreate.action")
+    @RequestMapping("/tocreate")
     public String tocreate() {return "createstudent";}
-    @RequestMapping("/tostudent.action")
+    @RequestMapping("/tostudent")
     public String tostudent() {return "student";}
-    @RequestMapping("/create.action")
+    @RequestMapping("/create")
     public String create(String name,Integer age,String gender,String number,String address,Integer status,Model model) {
         Student student=new Student();
         student.setName(name);
@@ -62,13 +45,13 @@ public class StudentController {
         }
         return "student";
     }
-    @RequestMapping("/toupdate.action")
+    @RequestMapping("/toupdate")
     public String toupdate(Integer id,Model model) {
         Student student=studentService.findById(id);
         model.addAttribute("student", student);
         return "updatestudent";
     }
-    @RequestMapping("/update.action")
+    @RequestMapping("/update")
     public String update(Integer id,String name,Integer age,String gender,String number,String address,Integer status,Model model) {
         Student student=new Student();
         student.setId(id);
@@ -90,7 +73,7 @@ public class StudentController {
             model.addAttribute("msg","修改失败"); }
         return "student";
     }
-    @RequestMapping("/todelete.action")
+    @RequestMapping("/todelete")
     public String delete(Integer id,Model model) {
         int rows=studentService.delStudent(id);
         if(rows>0) {

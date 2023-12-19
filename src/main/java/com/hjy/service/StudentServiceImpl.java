@@ -1,6 +1,6 @@
 package com.hjy.service;
 
-import com.hjy.dao.StudentDao;
+import com.hjy.mapper.StudentMapper;
 import com.hjy.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,20 +10,20 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService{
     @Autowired
-    private StudentDao studentDao;
-    public List<Student> selectAll(Student student){
-        return this.studentDao.selectAll(student);
+    private StudentMapper studentMapper;
+    public List<Student> selectAll(){
+        return this.studentMapper.selectAll();
     }
     public int insertStudent(Student student){
-        return this.studentDao.insertStudent(student);
+        return this.studentMapper.insertStudent(student);
     }
     public int updateStudent(Student student){
-        return this.studentDao.updateStudent(student);
+        return this.studentMapper.updateStudent(student);
     }
     public int delStudent(int id){
-        return this.studentDao.delStudent(id);
+        return this.studentMapper.delStudent(id);
     }
     public Student findById(int id){
-        return this.studentDao.findById(id);
+        return this.studentMapper.findById(id);
     }
 }
