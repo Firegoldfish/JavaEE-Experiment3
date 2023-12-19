@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/studentController")
 public class StudentController {
     @Autowired
     private StudentService studentService;

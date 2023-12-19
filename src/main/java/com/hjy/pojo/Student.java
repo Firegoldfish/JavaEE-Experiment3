@@ -6,11 +6,11 @@ public class Student {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -22,11 +22,11 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -54,11 +54,11 @@ public class Student {
         this.address = address;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -75,15 +75,15 @@ public class Student {
                 '}';
     }
 
-    private int id;
+    private Integer id;
     private String name;
-    private int age;
+    private Integer age;
     private String gender;
     private String number;
     private String address;
-    private int status;
+    private Integer status;
 
-    public Student(int id, String name, int age, String gender, String number, String address, int status) {
+    public Student(Integer id, String name, Integer age, String gender, String number, String address, Integer status) {
         this.id = id;
         this.name = name;
         this.age = age;
