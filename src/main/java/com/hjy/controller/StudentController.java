@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -74,14 +73,9 @@ public class StudentController {
             model.addAttribute("msg","修改失败"); }
         return "student";
     }
-    @RequestMapping("/todelete")
-    public String delete(Integer id,Model model) {
+    @RequestMapping("/delStudent")
+    public String delStudent(Integer id, Model model) {
         int rows=studentService.delStudent(id);
-        if(rows>0) {
-            model.addAttribute("msg","删除成功");
-        }else {
-            model.addAttribute("msg","删除失败");
-        }
-        return "student";
+        return "redirect:/studentController/showTable";
     }
 }

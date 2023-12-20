@@ -24,18 +24,26 @@
         <th>电话</th>
         <th>地址</th>
         <th>状态</th>
+        <th>操作</th>
       </tr>
       <c:forEach items="${students}" var="student">
         <tr>
-          <th>${student.id}</th>
-          <th>${student.name}</th>
-          <th>${student.age}</th>
-          <th>${student.gender}</th>
-          <th>${student.number}</th>
-          <th>${student.address}</th>
-          <th>${student.status}</th>
+          <td>${student.id}</td>
+          <td>${student.name}</td>
+          <td>${student.age}</td>
+          <td>${student.gender}</td>
+          <td>${student.number}</td>
+          <td>${student.address}</td>
+          <td>${student.status}</td>
+            <td>
+                <form action="delStudent" method="post">
+                    <input type="hidden" name="id" value="${student.id}">
+                    <input type="submit" value="删除">
+                </form>
+            </td>
         </tr>
       </c:forEach>
     </table>
+
 </body>
 </html>
