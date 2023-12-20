@@ -13,6 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/studentController")
 public class StudentController {
+
     @Autowired
     private StudentService studentService;
     @RequestMapping("/showTable")
@@ -21,13 +22,19 @@ public class StudentController {
         model.addAttribute("students", students);
         return "student";
     }
-    @RequestMapping("/tocreate")
-    public String tocreate() {return "createstudent";}
-    @RequestMapping("/tostudent")
-    public String tostudent() {return "student";}
-    @RequestMapping("/create")
-    public String create(String name,Integer age,String gender,String number,String address,Integer status,Model model) {
+    @RequestMapping("/toInsert")
+    public String toInsert() {return "insertStudent";}
+    @RequestMapping("/insertStudent")
+    public String insertStudent(Model model,HttpServletRequest httpServletRequest) {
         Student student=new Student();
+        String name = httpServletRequest.getParameter("name");
+        String age1 = httpServletRequest.getParameter("age");
+        Integer age = Integer.parseInt(age1);
+        String gender = httpServletRequest.getParameter("gender");
+        String number = httpServletRequest.getParameter("number");
+        String address = httpServletRequest.getParameter("address");
+        String status1= httpServletRequest.getParameter("status");
+        Integer status = Integer.parseInt(status1);
         student.setName(name);
         student.setAge(age);
         if(gender==null)gender="";
@@ -43,7 +50,7 @@ public class StudentController {
         }else {
             model.addAttribute("msg","添加失败");
         }
-        return "student";
+        return "insertStudent";
     }
     @RequestMapping("/toupdate")
     public String toupdate(Integer id,Model model) {
