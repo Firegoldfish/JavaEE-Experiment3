@@ -17,7 +17,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
     @RequestMapping("/showTable")
-    public String showTable(int id, String name, Integer age, String gender, String address, Model model, HttpServletRequest request){
+    public String showTable(Integer id, String name, Integer age, String gender, String address, Model model, HttpServletRequest request){
         List<Student> students =studentService.selectAll();
         model.addAttribute("students", students);
         return "student";

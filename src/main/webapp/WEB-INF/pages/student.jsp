@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=GBK" %>
  <%@page import="java.util.List"%>
  <%@page import="java.util.ArrayList"%>
 
@@ -13,18 +12,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ѧ����Ϣ</title>
+    <title>学生信息</title>
 </head>
 <body>
     <table>
       <tr>
-        <th>���</th>
-        <th>����</th>
-        <th>����</th>
-        <th>�Ա�</th>
-        <th>�绰</th>
-        <th>��ַ</th>
-        <th>״̬</th>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>电话</th>
+        <th>地址</th>
+        <th>状态</th>
       </tr>
       <c:forEach items="${students}" var="student">
         <tr>
