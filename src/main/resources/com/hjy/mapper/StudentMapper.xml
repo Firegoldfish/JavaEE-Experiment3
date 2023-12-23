@@ -24,29 +24,53 @@
         insert into students (name, age, gender, number, address, status) values (#{name},#{age},#{gender},#{number},#{address},#{status})
     </insert>
     <update id="updateStudent" parameterType="Student">
-        update students set
-        <set>
-            <if test="name!=null and name!=''">
-                name=#{name},
+        update students
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name !=null and name !=''">
+                name = #{name},
             </if>
-            <if test="age!=null">
-                age=#{age},
+            <if test="age !=null and age != ''">
+                age = #{age},
             </if>
-            <if test="gender!=null and gender!=''">
-                gender=#{gender},
+            <if test="gender !=null and gender !=''">
+                gender = #{gender},
             </if>
-            <if test="number!=null and number!=''">
-                number=#{number},
+            <if test="number !=null and number != ''">
+                number = #{number},
             </if>
-            <if test="address!=null and address!=''">
-                address=#{address},
+            <if test="address !=null and address !=''">
+                address = #{address},
             </if>
-            <if test="status!=null">
-                status=#{status}
+            <if test="status !=null and status != ''">
+                status = #{status},
             </if>
-        </set>
-        where id=#{id}
+        </trim>
+        where id = #{id}
     </update>
+<!--    <update id="updateStudent" parameterType="Student">-->
+<!--        update students set-->
+<!--        <set>-->
+<!--            <if test="name!=null and name!=''">-->
+<!--                name=#{name},-->
+<!--            </if>-->
+<!--            <if test="age!=null">-->
+<!--                age=#{age},-->
+<!--            </if>-->
+<!--            <if test="gender!=null and gender!=''">-->
+<!--                gender=#{gender},-->
+<!--            </if>-->
+<!--            <if test="number!=null and number!=''">-->
+<!--                number=#{number},-->
+<!--            </if>-->
+<!--            <if test="address!=null and address!=''">-->
+<!--                address=#{address},-->
+<!--            </if>-->
+<!--            <if test="status!=null">-->
+<!--                status=#{status}-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where id=#{id}-->
+<!--    </update>-->
     <delete id="delStudent" parameterType="Integer">
         delete from students where id=#{id}
     </delete>

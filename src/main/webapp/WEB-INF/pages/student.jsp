@@ -15,6 +15,7 @@
     <title>学生信息</title>
 </head>
 <body>
+<h3 align="center">学生信息全览</h3>
     <table>
       <tr>
         <th>序号</th>

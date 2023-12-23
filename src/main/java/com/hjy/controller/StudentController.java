@@ -52,32 +52,37 @@ public class StudentController {
         }
         return "insertStudent";
     }
-    @RequestMapping("/toupdate")
-    public String toupdate(Integer id,Model model) {
-        Student student=studentService.findById(id);
-        model.addAttribute("student", student);
-        return "updatestudent";
-    }
-    @RequestMapping("/update")
-    public String update(Integer id,String name,Integer age,String gender,String number,String address,Integer status,Model model) {
+    @RequestMapping("/toUpdate")
+    public String toUpdate(Model model) {return "updateStudent";}
+    @RequestMapping("/updateStudent")
+    public String updateStudent(Model model, HttpServletRequest httpServletRequest) {
         Student student=new Student();
+        String id1= httpServletRequest.getParameter("id");
+        Integer id = Integer.parseInt(id1);
+        String name = httpServletRequest.getParameter("name");
+        String age1 = httpServletRequest.getParameter("age");
+        Integer age = Integer.parseInt(age1);
+        String gender = httpServletRequest.getParameter("gender");
+        String number = httpServletRequest.getParameter("number");
+        String address = httpServletRequest.getParameter("address");
+        String status1= httpServletRequest.getParameter("status");
+        Integer status = Integer.parseInt(status1);
         student.setId(id);
-        if(name==null)name="";
         student.setName(name);
         student.setAge(age);
         if(gender==null)gender="";
         student.setGender(gender);
-        if(number==null)number="";
         student.setNumber(number);
         if(address==null)address="";
         student.setAddress(address);
+        if(status==null)status=1;
         student.setStatus(status);
-        System.out.println(student.toString());
         int rows=studentService.updateStudent(student);
         if(rows>0) {
-            model.addAttribute("msg","修改成功");
+            model.addAttribute("msg","更新成功");
         }else {
-            model.addAttribute("msg","修改失败"); }
+            model.addAttribute("msg","更新失败");
+        }
         return "student";
     }
     @RequestMapping("/delStudent")
