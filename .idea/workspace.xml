@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8319aa0-678e-4181-b07b-31f4dbd600ff" name="更改" comment="删除操作">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/insertStudent.jsp" afterDir="false" />
+    <list default="true" id="e8319aa0-678e-4181-b07b-31f4dbd600ff" name="更改" comment="我不行了 增加操作怎么弄">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hjy/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hjy/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/student.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/student.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/insertStudent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/insertStudent.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +199,9 @@
       <workItem from="1702998000709" duration="3459000" />
       <workItem from="1703001918861" duration="3468000" />
       <workItem from="1703051719143" duration="1649000" />
-      <workItem from="1703061796662" duration="5989000" />
+      <workItem from="1703061796662" duration="6313000" />
+      <workItem from="1703086534128" duration="309000" />
+      <workItem from="1703308337147" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <option name="closed" value="true" />
@@ -243,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703064010529</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="我不行了 增加操作怎么弄">
+      <option name="closed" value="true" />
+      <created>1703073876230</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703073876230</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +287,7 @@
     <MESSAGE value="fifth commit" />
     <MESSAGE value="展示所有学生" />
     <MESSAGE value="删除操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除操作" />
+    <MESSAGE value="我不行了 增加操作怎么弄" />
+    <option name="LAST_COMMIT_MESSAGE" value="我不行了 增加操作怎么弄" />
   </component>
 </project>

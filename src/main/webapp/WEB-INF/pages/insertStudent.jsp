@@ -34,7 +34,7 @@
 <div>
   <h1>添加学生</h1>
   <h3 align="center">添加学生信息</h3>
-  <form name="form1" method="post" action="${pageContext.request.contextPath }/insertStudent" onsubmit="return CHECK()">
+  <form name="form1" method="post" action="insertStudent" onsubmit="return CHECK()">
     <table border=1 align="center">
       <tr></tr>
       <tr><th>姓名</th><td><input type="text" name="name" placeholder="必填*"/></td></tr>
