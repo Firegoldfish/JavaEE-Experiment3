@@ -1,6 +1,7 @@
 package com.hjy.controller;
 
 import com.hjy.pojo.Student;
+import com.hjy.pojo.User;
 import com.hjy.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,7 @@ public class StudentController {
     @RequestMapping("/insertStudent")
     public String insertStudent(Model model,HttpServletRequest httpServletRequest) {
         Student student=new Student();
-        String name = httpServletRequest.getParameter("name");
+        String name = httpServletRequest.getParameter ("name");
         String age1 = httpServletRequest.getParameter("age");
         Integer age = Integer.parseInt(age1);
         String gender = httpServletRequest.getParameter("gender");
@@ -50,7 +51,7 @@ public class StudentController {
         }else {
             model.addAttribute("msg","添加失败");
         }
-        return "insertStudent";
+        return "redirect:/studentController/showTable";
     }
     @RequestMapping("/toUpdate")
     public String toUpdate(Model model) {return "updateStudent";}
@@ -83,11 +84,27 @@ public class StudentController {
         }else {
             model.addAttribute("msg","更新失败");
         }
-        return "student";
+        return "redirect:/studentController/showTable";
     }
     @RequestMapping("/delStudent")
     public String delStudent(Integer id, Model model) {
         int rows=studentService.delStudent(id);
         return "redirect:/studentController/showTable";
+    }
+    @RequestMapping(value = "/toLogin")
+    public String toLogin(){
+        return "login";
+    }
+    @RequestMapping(value = "/userLogin")
+    public String userLogin(User user, Model model, HttpServletRequest httpServletRequest){
+        String username = httpServletRequest.getParameter("username");
+        String password = httpServletRequest.getParameter("password");
+        if(username=="teacher" && password=="114514"){
+            return "redirect:/studentController/showTable";
+        }
+        else {
+            model.addAttribute("msg","账号或密码输入错误，请重试。");
+            return "login";
+        }
     }
 }
