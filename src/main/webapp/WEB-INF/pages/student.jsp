@@ -37,7 +37,7 @@
           <td>${student.address}</td>
           <td>${student.status}</td>
             <td>
-                <form action="delStudent" method="post">
+                <form action="delStudent" method="ost">
                     <input type="hidden" name="id" value="${student.id}">
                     <input type="submit" value="删除">
                 </form>
@@ -46,4 +46,4 @@
       </c:forEach>
     </table>
 </body>
-</html>
+</html>         //test
